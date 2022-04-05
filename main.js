@@ -22,8 +22,36 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
 // An array of all the arrays above
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
 
+// Luhn algorithm: luhn()
+// Checks if digits are mathematically
+// correct.
+const luhn = card => {
+    if (!Array.isArray(card) || card.length < 15) return false;
 
-// Add your functions below:
+    let sum = 0;
+    let isDbl = false;
+    let current;
+    
+    for (let i = card.length - 1; i >= 0; i--) {
+        current = card[i];
+        if (isDbl === true) {
+            current *= 2;
+            if (current > 9) current -= 9;
+            sum += current;
+            isDbl = false;
+        } else {
+            sum += current;
+            isDbl = true;
+        }
+    }
+    
+    console.log(`Sum: ${sum}, Checker: ${sum%10}`);
+}
+luhn(valid3);
+// Validate Credit Card: validateCred()
+// If card has valid digits, then return true,
+// else false.
+
 
 
 
