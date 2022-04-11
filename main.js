@@ -80,3 +80,14 @@ const idInvalidCardCompanies = batch => {
         }
     }
 }
+
+// main
+// Drives program
+const main = batch => {
+    const invalidCards = findInvalidCards(batch);
+    const companies = idInvalidCardCompanies(invalidCards);
+
+    for (let company of companies) {
+        console.log(company);
+    }
+}
