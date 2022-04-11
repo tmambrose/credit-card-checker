@@ -62,12 +62,21 @@ const findInvalidCards = batch => {
     }
 }
 
+// idInvalidCardCompanies
+// Receives the array of invalid cards and returns an
+// array of companies associated with the invalid cards.
+const idInvalidCardCompanies = batch => {
+    let companies = new Array();
 
-
-
-
-
-
-
-
-
+    for (let card of batch) {
+        if (companies.indexOf(card[0]) == -1) {
+            switch (card[0]) {
+                case 3: companies.push('Amex'); break;
+                case 4: companies.push('Visa'); break;
+                case 5: companies.push('Mastercard'); break;
+                case 6: companies.push('Discover'); break;
+                default: console.log('Company not found');
+            }
+        }
+    }
+}
