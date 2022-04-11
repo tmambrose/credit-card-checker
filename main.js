@@ -71,14 +71,24 @@ const idInvalidCardCompanies = batch => {
     let companies = new Array();
 
     for (let card of batch) {
-        if (companies.indexOf(card[0]) == -1) {
-            switch (card[0]) {
-                case 3: companies.push('Amex'); break;
-                case 4: companies.push('Visa'); break;
-                case 5: companies.push('Mastercard'); break;
-                case 6: companies.push('Discover'); break;
-                default: console.log('Company not found');
-            }
+        switch (card[0]) {
+            case 3: 
+                if (companies.indexOf('Amex') == -1)
+                    companies.push('Amex'); 
+                break;
+            case 4: 
+                if (companies.indexOf('Visa') == -1)
+                    companies.push('Visa'); 
+                break;
+            case 5: 
+                if (companies.indexOf('Mastercard') == -1)
+                    companies.push('Mastercard');
+                break;
+            case 6: 
+                if (companies.indexOf('Discover') == -1)
+                    companies.push('Discover'); 
+                break;
+            default: console.log('Company not found');
         }
     }
 
@@ -95,3 +105,5 @@ const main = batch => {
         console.log(company);
     }
 }
+
+main(batch);
