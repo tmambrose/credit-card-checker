@@ -49,6 +49,19 @@ const validateCred = card => {
     //console.log(`Sum: ${sum}, Checker: ${sum%10}`);
 }
 
+// findInvalidCards:
+// Checks through an array of cards and returns an array
+// of invalid cards.
+const findInvalidCards = batch => {
+    let invalidCards = new Array();
+
+    for (let card of batch) {
+        if (!validateCred(card)) {
+            invalidCards.push(card);
+        }
+    }
+}
+
 
 
 
