@@ -60,6 +60,8 @@ const findInvalidCards = batch => {
             invalidCards.push(card);
         }
     }
+
+    return invalidCards;
 }
 
 // idInvalidCardCompanies
