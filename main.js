@@ -22,7 +22,7 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3]
 // An array of all the arrays above
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5]
 
-// validateCred(): Validate Credit Card
+// validateCred()
 // Return true when an array contains digits of a valid credit 
 // card number and false when it is invalid.
 const validateCred = card => {
