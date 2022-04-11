@@ -79,6 +79,8 @@ const idInvalidCardCompanies = batch => {
             }
         }
     }
+
+    return companies;
 }
 
 // main
