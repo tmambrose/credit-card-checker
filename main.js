@@ -30,27 +30,22 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 // Return true when an array contains digits of a valid credit 
 // card number and false when it is invalid.
 const validateCred = card => {
-    // Return false if not an array.
-    if (!Array.isArray(card)) return false;
+    if (!Array.isArray(card))
+        return false;
 
-    let sum = 0;
-    let isDbl = false;
-    let current;
+    const nDigits = card.length;
+    let sum = card[nDigits - 1];
+    const parity = (nDigits - 2) % 2;
     
-    for (let i = card.length - 1; i >= 0; i--) {
-        current = card[i];
-        if (isDbl === true) {
-            current *= 2;
-            if (current > 9) current -= 9;
-            sum += current;
-            isDbl = false;
-        } else {
-            sum += current;
-            isDbl = true;
-        }
+    for (let i = 0; i <= nDigits - 2; i++) {        
+        let digit = card[i];
+        if (i%2 == parity)
+            digit *= 2;
+        if (digit > 9)
+            digit -= 9;
+        sum += digit;
     }
-    
-    //console.log(`Sum: ${sum}, Checker: ${sum%10}`);
+    return sum%10 == 0;
 }
 
 // findInvalidCards:
